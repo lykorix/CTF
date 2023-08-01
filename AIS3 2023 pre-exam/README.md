@@ -1,7 +1,6 @@
 # AIS3 2023 pre-exam writeup
 
-> [name= 劉浩恩]
-    
+
 <br>
     
 ## Misc
