@@ -19,30 +19,36 @@
 
 發現40個 bytes 會造成 buffer overflow  
 
-![](https://hackmd.io/_uploads/B1Bdhbho3.png)
+![upload_aba7884b8375577eb4e60c1274bf3961](https://github.com/lykorix/CTF-Writeups/assets/78891767/f1914779-6025-45a2-95da-b9278d35753a)
+
 
 而 win() 位在 0x4011B6   
 
-![](https://hackmd.io/_uploads/BJCHTbhsn.png)
+![upload_a15ffe94be90b1606f0517bdc971f960](https://github.com/lykorix/CTF-Writeups/assets/78891767/d005a508-d57b-467c-a797-260d99bbe103)
+)
 
 ret2text.py
 
-![](https://hackmd.io/_uploads/Skw9qwz32.png)
+
+![upload_3ff2eaa431dff5d2d405e66dabbf94ad](https://github.com/lykorix/CTF-Writeups/assets/78891767/cfabd42f-e727-49aa-9ad2-fcd57a3b9b5d)
 
 
 ## gothijack
 
 程式將第二個讀入的質寫入第一個輸入的位址，故可以將 puts@GOT 改為win()
 
-![image](https://hackmd.io/_uploads/HyBEvC3o3.png)
+![upload_31f9d68ddd4277177395cbe6ef837056](https://github.com/lykorix/CTF-Writeups/assets/78891767/3ed787bb-9a74-4bed-b682-d809e7563c9d)
+)
 
-![image](https://hackmd.io/_uploads/rJB8PR2j3.png)
+![upload_6afed639d81608d9483e5178b042c6c8](https://github.com/lykorix/CTF-Writeups/assets/78891767/255bb6cd-0c11-4fef-8106-77936f33b0fe)
+)
 
 
 
 gothijack.py
 
-![](https://hackmd.io/_uploads/SykSGufh2.png)
+![upload_ea290ca70dfa68b64856ca9f0c7ca0b4](https://github.com/lykorix/CTF-Writeups/assets/78891767/06750759-640c-48d1-b63e-c77146d1e398)
+ng)
 
 
 ## easyrop
@@ -67,8 +73,7 @@ ROPgadget 找rax, rdi, rsi, rdx, mem寫入及 syscall 的指令
 
 easyrop.py
 
-![](https://hackmd.io/_uploads/Hk_gr_fh2.png)
-
+![upload_f5ffaad256dd65d246ab5e48e9b49b70](https://github.com/lykorix/CTF-Writeups/assets/78891767/569ef3aa-5069-4f4e-9dd0-95721a55a6d9)
 
 
 
@@ -77,7 +82,8 @@ easyrop.py
 
 40個 bytes 會造成 buffer overflow，但指令執行到do_system 調用 xmm0 時會 segment fault
 
-![](https://hackmd.io/_uploads/H1PixKMh2.png)
+![upload_7205aab50b10ba08cadf0cc8a6f83b3c](https://github.com/lykorix/CTF-Writeups/assets/78891767/ff3c18fd-1f91-4ada-bcd0-de7e2170ff0c)
+
 
 
 https://hack543.com/16-bytes-stack-alignment-movaps-issue/
@@ -85,32 +91,38 @@ https://hack543.com/16-bytes-stack-alignment-movaps-issue/
 
 ret2text_adv.py
 
-![](https://hackmd.io/_uploads/HJ-veYf2n.png)
+
+![upload_98626d6c7935d0d1c3e775fdb0e41617](https://github.com/lykorix/CTF-Writeups/assets/78891767/bbcb86e6-51bb-40d2-ac37-e3577a4e0b97)
 
 
 ## gothijack_adv
 
 程式是將兩個記憶體位址調換兩次，故思路是更改 got 來執行 system()
 
-![](https://hackmd.io/_uploads/HJFpXFMn3.png)
+![upload_4c8f75a57836f93aff61c2bbb64031c0](https://github.com/lykorix/CTF-Writeups/assets/78891767/241af617-0d30-45f1-9750-0e6bf7e651ea)
+
 
 首先把strtoll() 換成 system()，但要將 "/bin/sh" 作為參數才能取得shell
 
 故用第三次 read() 把  "/bin/sh"作為參數，此時發現執行到system 時rdi會存一開始 read() 讀到的東西，所以可以在第一個read()讀"/bin/sh"
 
-![](https://hackmd.io/_uploads/Byqy0tG3n.png)
+![upload_fe3d8dccb6aaae5e9759af23141e62ad](https://github.com/lykorix/CTF-Writeups/assets/78891767/6c41b8b6-3972-4b32-a309-701a3480b4c8)
+
 讀到rdi，最後觸發system("/bin/sh")
 
 gothijack_adv.py
 
-![](https://hackmd.io/_uploads/rkSkQtznh.png)
+![upload_54e0b296b1134fcbeb685ac327baf83f](https://github.com/lykorix/CTF-Writeups/assets/78891767/bf6e65f3-52a9-446f-a492-abf8ae8c50fe)
+
 
 
 ## r3t2lib
 
 程式會透漏輸入位址的內容，可以拿來看 puts@got ， 得到 puts() 實際位址再用 libc offset 來推 system() 的實際位址 : puts address - puts offset + system offset
 
-![](https://hackmd.io/_uploads/BkVa15M2h.png)
+
+![upload_6feb71719e2b1c7b7bea4067c9e3ffd9](https://github.com/lykorix/CTF-Writeups/assets/78891767/3c392a2f-3c85-427b-bc2e-dbfe558e12f4)
+
 
 
 gets() 在輸入280 個 bytes 時會 buffer overflow，讓他跳到 system()
@@ -119,14 +131,17 @@ gets() 在輸入280 個 bytes 時會 buffer overflow，讓他跳到 system()
 
 此時還需要 "/bin/sh"作為參數，發現執行到 system() 時rdi會存一開始 read()讀到的值，故可以讓第一個read()讀"/bin/sh"
 
-![](https://hackmd.io/_uploads/H1YylcGn2.png)  
+
+![upload_5f507e0552aef36fa53861ac2c179c83](https://github.com/lykorix/CTF-Writeups/assets/78891767/e4eaff1d-2f37-4740-af66-f0e5c838d293)
+
 
 最後"/bin/sh"就會在執行system()時作為參數傳入
 
 
 r3t2lib.py
 
-![](https://hackmd.io/_uploads/SyOdPFG33.png)
+
+![upload_8fe4fb0d8d9b6d1f6bd9c4e1f0506293](https://github.com/lykorix/CTF-Writeups/assets/78891767/1de5c442-ef50-4230-9a43-44144fc00c5d)
 
 
 * 在同一個程式同樣是用 libc.so.6 的情形下，kali-linux 的 offset 跟 ubuntu 不太一樣
@@ -141,7 +156,8 @@ r3t2lib.py
 
 找到一個getpid function, syscall 之後 return
 
-![](https://hackmd.io/_uploads/BkrHwqMnh.png)
+![upload_3ee8c3da2c36a52cc8a7013b1558ad3a](https://github.com/lykorix/CTF-Writeups/assets/78891767/362adf03-65a9-40c5-9d68-1faea1f35ea5)
+
 
 
 設 rdx=0x400 ，此時  rax=0, rdi=0, rsi= buffer address ，執行這個syscall，read() 就能讀 0x400 個 bytes
@@ -150,7 +166,8 @@ r3t2lib.py
 
 easyrop_adv.py
 
-![](https://hackmd.io/_uploads/rJzl_cG3h.png)
+![upload_a2f55517b4e3a0305723305847177af3](https://github.com/lykorix/CTF-Writeups/assets/78891767/e2cd8202-e5f1-4c84-83d3-fb147517f18a)
+
 
 ## ret2plt
 
@@ -165,5 +182,6 @@ easyrop_adv.py
 
 ret2plt.py
 
-![](https://hackmd.io/_uploads/SJv8i5Gn2.png)
+![upload_30b802c670d5fea1c4425ace3ca31052](https://github.com/lykorix/CTF-Writeups/assets/78891767/52b8a686-1407-4327-b053-c2c423ef0bb8)
+
 
