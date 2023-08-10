@@ -145,7 +145,7 @@ gets() 在輸入280 個 bytes 時會 buffer overflow，讓他跳到 system()
 ![upload_8fe4fb0d8d9b6d1f6bd9c4e1f0506293](https://github.com/lykorix/CTF-Writeups/assets/78891767/1de5c442-ef50-4230-9a43-44144fc00c5d)
 
 
-* 在同一個程式同樣是用 libc.so.6 的情形下，kali-linux 的 offset 跟 ubuntu 不太一樣
+> 在同一個程式同樣是用 libc.so.6 的情形下，kali-linux 的 offset 跟 ubuntu 不太一樣
 
 
 
