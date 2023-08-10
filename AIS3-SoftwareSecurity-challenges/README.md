@@ -27,7 +27,7 @@
 ![upload_a15ffe94be90b1606f0517bdc971f960](https://github.com/lykorix/CTF-Writeups/assets/78891767/d005a508-d57b-467c-a797-260d99bbe103)
 )
 
-- [AIS3 SoftwareSecurity challenges](ret2text.py)
+- [ret2text.py](ret2text.py)
 
 
 ![upload_3ff2eaa431dff5d2d405e66dabbf94ad](https://github.com/lykorix/CTF-Writeups/assets/78891767/cfabd42f-e727-49aa-9ad2-fcd57a3b9b5d)
@@ -45,7 +45,7 @@
 
 
 
-gothijack.py
+- [gothijack.py](gothijack.py)
 
 ![upload_ea290ca70dfa68b64856ca9f0c7ca0b4](https://github.com/lykorix/CTF-Writeups/assets/78891767/06750759-640c-48d1-b63e-c77146d1e398)
 ng)
@@ -71,7 +71,7 @@ ROPgadget 找rax, rdi, rsi, rdx, mem寫入及 syscall 的指令
 
 設 rax = 0x3b , rdi = address of "/bin/sh", rsi = 0 , rdx = 0 ， 然後 syscall
 
-easyrop.py
+-[easyrop.py](easyrop.py)
 
 ![upload_f5ffaad256dd65d246ab5e48e9b49b70](https://github.com/lykorix/CTF-Writeups/assets/78891767/569ef3aa-5069-4f4e-9dd0-95721a55a6d9)
 
@@ -89,7 +89,7 @@ easyrop.py
 https://hack543.com/16-bytes-stack-alignment-movaps-issue/
 發現是 xmm 暫存器 alignment 的問題，多呼叫一次其他位址的 ret 即可對齊 rsp
 
-ret2text_adv.py
+- [ret2text_adv.py](ret2text_adv.py)
 
 
 ![upload_98626d6c7935d0d1c3e775fdb0e41617](https://github.com/lykorix/CTF-Writeups/assets/78891767/bbcb86e6-51bb-40d2-ac37-e3577a4e0b97)
@@ -110,7 +110,7 @@ ret2text_adv.py
 
 讀到rdi，最後觸發system("/bin/sh")
 
-gothijack_adv.py
+- [gothijack_adv.py](gothijack_adv.py)
 
 ![upload_54e0b296b1134fcbeb685ac327baf83f](https://github.com/lykorix/CTF-Writeups/assets/78891767/bf6e65f3-52a9-446f-a492-abf8ae8c50fe)
 
@@ -138,7 +138,7 @@ gets() 在輸入280 個 bytes 時會 buffer overflow，讓他跳到 system()
 最後"/bin/sh"就會在執行system()時作為參數傳入
 
 
-r3t2lib.py
+- [r3t2lib.py](r3t2lib.py)
 
 
 ![upload_8fe4fb0d8d9b6d1f6bd9c4e1f0506293](https://github.com/lykorix/CTF-Writeups/assets/78891767/1de5c442-ef50-4230-9a43-44144fc00c5d)
@@ -164,7 +164,7 @@ r3t2lib.py
 
 最後將造成 overflow 的72個 bytes 跟 rop (同 easyrop )讓第二個 read() 讀入
 
-easyrop_adv.py
+- [easyrop_adv.py](easyrop_adv.py)
 
 ![upload_a2f55517b4e3a0305723305847177af3](https://github.com/lykorix/CTF-Writeups/assets/78891767/e2cd8202-e5f1-4c84-83d3-fb147517f18a)
 
@@ -180,7 +180,7 @@ easyrop_adv.py
 
 最後再呼叫一次 gets() 把 system() 位址寫到puts@got，然後把 "/bin/sh" 讀到 rdi ，後面接著的 puts() 就會變成system("/bin/sh")
 
-ret2plt.py
+- [ret2plt.py](ret2plt.py)
 
 ![upload_30b802c670d5fea1c4425ace3ca31052](https://github.com/lykorix/CTF-Writeups/assets/78891767/52b8a686-1407-4327-b053-c2c423ef0bb8)
 
