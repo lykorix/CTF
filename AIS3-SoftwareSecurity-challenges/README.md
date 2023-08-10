@@ -48,7 +48,7 @@
 - [gothijack.py](gothijack.py)
 
 ![upload_ea290ca70dfa68b64856ca9f0c7ca0b4](https://github.com/lykorix/CTF-Writeups/assets/78891767/06750759-640c-48d1-b63e-c77146d1e398)
-ng)
+
 
 
 ## easyrop
