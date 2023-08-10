@@ -2,15 +2,17 @@
 
 斷點設在 `0x40143C`，查看rand()值  
 
-![](https://hackmd.io/_uploads/H1-sqKojn.png)
+![upload_0f29f476c5d42ae647d4309cce7d5287](https://github.com/lykorix/CTF-Writeups/assets/78891767/335864a3-f91c-4b20-93d0-3e5356dd67cb)
 
 ## Sysmag1c - 2 
 
 
 斷點設在0x401526，將[rbp+var_4] 設為 0xDDAAh，則 `cmp     [rbp+var_4], 0DDAAh`就會相等  
 
-![](https://hackmd.io/_uploads/SydQyqssn.png)
-![upload_0f29f476c5d42ae647d4309cce7d5287](https://github.com/lykorix/CTF-Writeups/assets/78891767/335864a3-f91c-4b20-93d0-3e5356dd67cb)
+
+![upload_a7fd17d314518423f9d720c676af0de8](https://github.com/lykorix/CTF-Writeups/assets/78891767/b21899fa-0a09-4906-a85c-57a99d7f45b7)
+
+
 
 
 ## ret2text
