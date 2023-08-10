@@ -31,9 +31,9 @@ ret2text.py
 
 程式將第二個讀入的質寫入第一個輸入的位址，故可以將 puts@GOT 改為win()
 
-![](https://hackmd.io/_uploads/HyBEvC3o3.png)
+![image](https://hackmd.io/_uploads/HyBEvC3o3.png)
 
-![](https://hackmd.io/_uploads/rJB8PR2j3.png)
+![image](https://hackmd.io/_uploads/rJB8PR2j3.png)
 
 
 
