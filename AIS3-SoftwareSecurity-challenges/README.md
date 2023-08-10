@@ -86,7 +86,8 @@ ROPgadget 找rax, rdi, rsi, rdx, mem寫入及 syscall 的指令
 
 
 
-https://hack543.com/16-bytes-stack-alignment-movaps-issue/
+https://hack543.com/16-bytes-stack-alignment-movaps-issue/  
+
 發現是 xmm 暫存器 alignment 的問題，多呼叫一次其他位址的 ret 即可對齊 rsp
 
 - [ret2text_adv.py](ret2text_adv.py)
