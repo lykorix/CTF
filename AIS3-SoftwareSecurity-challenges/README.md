@@ -10,6 +10,7 @@
 斷點設在0x401526，將[rbp+var_4] 設為 0xDDAAh，則 `cmp     [rbp+var_4], 0DDAAh`就會相等  
 
 ![](https://hackmd.io/_uploads/SydQyqssn.png)
+![upload_0f29f476c5d42ae647d4309cce7d5287](https://github.com/lykorix/CTF-Writeups/assets/78891767/335864a3-f91c-4b20-93d0-3e5356dd67cb)
 
 
 ## ret2text
