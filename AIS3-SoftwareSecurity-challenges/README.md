@@ -191,10 +191,10 @@ gets() 在輸入280 個 bytes 時會 buffer overflow，讓他跳到 system()
 
 利用最後 read 的 buffer overflow ，partial write rsp 的最後一個 byte，使其跳到 call ret2lib 這條指令，同時也會將 rsp 中的位址印出
 
-得到位址後便可進行計算，可算出 put@got 的位址，然後讓See_something()印出
+得到位址後便可進行計算，可算出 put@got 的位址，然後讓 See_something() 印出
 puts 的實際位址，再根據 libc offset 算出 libc 的 base address
 
-根據 base address 就可算出system() 及 '/bin/sh' 的位址，再找出並算出 libc 中 `pop rdi ; ret` 的 rop (r3t2lib_adv 本身沒有)位址，最後因為 xmm alignment 問題要多找一個 ret 指令的位址
+根據 base address 就可算出system() 及 '/bin/sh' 的位址，再找出並算出 libc 中 `pop rdi ; ret` rop 的位址 (r3t2lib_adv 本身沒有)，最後因為 xmm alignment 問題要多找一個 ret 指令的位址
 
 - [r3t2lib_adv.py](r3t2lib_adv.py)
 
