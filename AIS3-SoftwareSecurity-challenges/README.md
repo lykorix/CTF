@@ -179,10 +179,25 @@ gets() 在輸入280 個 bytes 時會 buffer overflow，讓他跳到 system()
 
 然後使用 puts(puts@got)，得出 puts() 實際位址，再用 offset 來算出 system() 位址
 
-最後再呼叫一次 gets() 把 system() 位址寫到puts@got，然後把 "/bin/sh" 讀到 rdi ，後面接著的 puts() 就會變成system("/bin/sh")
+最後再呼叫一次 gets() 把 system() 位址寫到 puts@got，然後把 "/bin/sh" 讀到 rdi ，後面接著的 puts() 就會變成 system("/bin/sh")
 
 - [ret2plt.py](ret2plt.py)
 
 ![upload_30b802c670d5fea1c4425ace3ca31052](https://github.com/lykorix/CTF-Writeups/assets/78891767/52b8a686-1407-4327-b053-c2c423ef0bb8)
+
+## r3t2lib_adv
+
+這一題使用了PIE，故首要任務是 leak address
+
+利用最後 read 的 buffer overflow ，partial write rsp 的最後一個 byte，使其跳到 call ret2lib 這條指令，同時也會將 rsp 中的位址印出
+
+得到位址後便可進行計算，可算出 put@got 的位址，然後讓See_something()印出
+puts 的實際位址，再根據 libc offset 算出 libc 的 base address
+
+根據 base address 就可算出system() 及 '/bin/sh' 的位址，再找出並算出 libc 中 `pop rdi ; ret` 的 rop (r3t2lib_adv 本身沒有)位址，最後因為 xmm alignment 問題要多找一個 ret 指令的位址
+
+- [r3t2lib_adv.py](r3t2lib_adv.py)
+
+![](https://hackmd.io/_uploads/B1i3E-Kh2.png)
 
 
