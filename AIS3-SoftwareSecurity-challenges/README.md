@@ -198,6 +198,6 @@ puts 的實際位址，再根據 libc offset 算出 libc 的 base address
 
 - [r3t2lib_adv.py](r3t2lib_adv.py)
 
-![](https://hackmd.io/_uploads/B1i3E-Kh2.png)
+![image](https://github.com/lykorix/CTF-Writeups/assets/78891767/6b250dac-7795-41da-b0d8-f6bb77f4045f)
 
 
